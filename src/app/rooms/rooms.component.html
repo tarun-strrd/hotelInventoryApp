@@ -1,0 +1,30 @@
+<hina-header></hina-header>
+<p>Welcome to {{ hotelName }}</p>
+
+<!-- {{ rooms?.availableRooms ?? "No Rooms" }} -->
+<router-outlet></router-outlet>
+<div *ngIf="rooms.availableRooms > 0">
+  RoomList:
+  <p>Rooms available {{ rooms.availableRooms }}</p>
+  <p>Rooms Booked: {{ rooms.bookedRooms }}</p>
+</div>
+<div *ngIf="selectedRoom">{{ selectedRoom | json }}</div>
+<button (click)="addRoom()" class="btn btn-success">add room</button>
+{{ priceFilter | json }}
+<div>
+  <input
+    type="number"
+    class="form-contol"
+    placeholder="Price"
+    [formControl]="priceFilter"
+  />
+</div>
+<hina-room-list
+  [rooms]="roomList"
+  [price]="priceFilter.value"
+  (roomSelected)="selectRoom($event)"
+  (roomEdited)="editRoom($event)"
+  (roomDeleted)="deleteRoom($event)"
+></hina-room-list>
+
+<button (click)="toggle()">Toggle</button>

@@ -1,0 +1,34 @@
+<form>
+  <div class="form-group">
+    <input
+      hinaHover
+      hinaEmailValidator
+      class="form-control"
+      color="green"
+      name="email"
+      type="email"
+      placeholder="Email"
+      [(ngModel)]="email"
+      required
+      #emailControl="ngModel"
+    />
+  </div>
+  <div>
+    {{ emailControl.errors | json }}
+  </div>
+  <div class="form-group">
+    <input
+      hinaHover
+      color="steelblue"
+      class="form-control"
+      name="password"
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+      required
+    />
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="login()">Login</button>
+  </div>
+</form>
