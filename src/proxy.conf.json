@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://localhost:3000",
+    "target": "https://master--glittering-capybara-dc9e2e.netlify.app00",
     "secure": false
   }
 }
